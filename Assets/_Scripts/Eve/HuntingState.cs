@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HuntingState : AiState {
 
-	Color oldColor;
+
 	Transform scanningZone; 
 	Transform body;
 	SpriteRenderer scannerRenderer;
@@ -18,7 +18,6 @@ public class HuntingState : AiState {
 		scanningZone = body.Find ("ScanningZone");
 		scannerRenderer = scanningZone.GetComponent<SpriteRenderer> ();
 		scanningZone.GetComponent<PolygonCollider2D> ().enabled = false;
-		oldColor = scannerRenderer.color;
 
 		anim.Play ("AttackPrep");
 		eva = AI.GetComponent<EvaController> ();

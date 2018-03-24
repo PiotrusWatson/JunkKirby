@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 	Rigidbody2D rb;
+	[SerializeField]
+	float force = 100f;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponentInChildren<Rigidbody2D> ();
-		rb.AddForce (10000 * transform.right, ForceMode2D.Impulse);
+		rb.AddForce (force * transform.right, ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame
