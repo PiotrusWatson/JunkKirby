@@ -434,6 +434,48 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+--- !u!1 &864432437 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1940676951725800, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+    type: 2}
+  m_PrefabInternal: {fileID: 1104448109}
+--- !u!50 &864432439
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864432437}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!255 &864432441
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864432437}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1522840984}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0.21450001, y: -0.1875}
+  m_DampingRatio: 0
+  m_Frequency: 0
 --- !u!1 &966846337
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda805f29a123844181c30a06ed5b70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &1084571047
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +698,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4682267257995804, guid: f695fa5e1121b7a4e859fe2b2d321f93, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.115
       objectReference: {fileID: 0}
     - target: {fileID: 4682267257995804, guid: f695fa5e1121b7a4e859fe2b2d321f93, type: 2}
       propertyPath: m_LocalPosition.y
@@ -685,6 +728,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 233480637338254824, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+        type: 2}
+      propertyPath: m_UseLimits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 233480637338254824, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+        type: 2}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -103.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 233480637338254824, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+        type: 2}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 13.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581121837658522, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233480637338254824, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+        type: 2}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233480637338254824, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+        type: 2}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f695fa5e1121b7a4e859fe2b2d321f93, type: 2}
   m_IsPrefabParent: 0
+--- !u!50 &1522840984 stripped
+Rigidbody2D:
+  m_PrefabParentObject: {fileID: 50890755623447018, guid: f695fa5e1121b7a4e859fe2b2d321f93,
+    type: 2}
+  m_PrefabInternal: {fileID: 1104448109}

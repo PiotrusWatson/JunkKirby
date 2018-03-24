@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		playerPos = GameObject.FindGameObjectWithTag ("Player").transform.GetChild (1).localPosition;
+		playerPos = GameObject.FindGameObjectWithTag ("Player").transform.localPosition; //this line gets where player actually is (THE WHEEL)
 		Vector3 newPos = new Vector3 (playerPos.x, playerPos.y, -10f);
 		transform.position = Vector3.Lerp (transform.position, newPos, speed * Time.fixedDeltaTime);
 	}

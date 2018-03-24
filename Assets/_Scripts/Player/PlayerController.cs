@@ -19,11 +19,13 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D rb2D;
 	Transform wheel;
+	Transform body;
 
 
 	// Use this for initialization
 	void Awake () {
 		wheel = transform.GetChild (1);
+		body = transform.GetChild (0);
 		rb2D = wheel.GetComponent<Rigidbody2D> ();
 	}
 	
@@ -39,9 +41,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (horizontal < 0 && !isFacingRight) {
-			flipX (5);
+			flipX (0.05f);
 		} else if (horizontal > 0 && isFacingRight) {
-			flipX (5);
+			flipX (0.05f);
 		}
 	}
 
@@ -50,9 +52,9 @@ public class PlayerController : MonoBehaviour {
 		//flips player :)
 		isFacingRight = !isFacingRight;
 
-		Vector3 theScale = wheel.localScale;
+		Vector3 theScale = transform.localScale;
 		Mathf.Lerp(theScale.x, theScale.x *= -1, flipTime * Time.fixedDeltaTime);
-		wheel.localScale = theScale;
+		transform.localScale = theScale;
 	}
 }
 	
