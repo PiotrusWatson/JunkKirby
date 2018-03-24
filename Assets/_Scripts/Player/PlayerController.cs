@@ -33,11 +33,17 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		horizontal = InputManager.GetAxis ("Horizontal");
 
-		rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
+		if (isGrounded) {
+
+			rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
+		}
 
 		if (InputManager.GetButton ("Jump") && isGrounded) {
 			rb2D.AddForce (Vector2.up * jumpStrength);
-			Debug.Log ("hi im jump");
+		}
+
+		if (InputManager.GetButton ("Grab")) {
+
 		}
 
 		if (horizontal < 0 && !isFacingRight) {
