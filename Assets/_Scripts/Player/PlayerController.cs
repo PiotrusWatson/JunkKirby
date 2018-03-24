@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = false;
 
 	private Rigidbody2D rb2D;
+	private Animator anim;
 	Transform wheel;
 	Transform body;
 
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 		wheel = transform.GetChild (1);
 		body = transform.GetChild (0);
 		rb2D = wheel.GetComponent<Rigidbody2D> ();
+		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -38,13 +40,7 @@ public class PlayerController : MonoBehaviour {
 			rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
 		}
 
-		if (InputManager.GetButton ("Jump") && isGrounded) {
-			rb2D.AddForce (Vector2.up * jumpStrength);
-		}
 
-		if (InputManager.GetButton ("Grab")) {
-
-		}
 
 		if (horizontal < 0 && !isFacingRight) {
 			flipX (0.05f);
@@ -53,6 +49,17 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void Update(){
+		if (InputManager.GetButton ("Jump") && isGrounded) {
+			rb2D.AddForce (Vector2.up * jumpStrength);
+		}
+
+		if (InputManager.GetButtonDown ("Grab")) {
+			anim.Play ("StartGrab");
+		} else if (InputManager.GetButtonUp ("Grab")) {
+			anim.Play ("EndGrab");
+		}
+	}
 
 	void flipX(float flipTime){
 		//flips player :)
