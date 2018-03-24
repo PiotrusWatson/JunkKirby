@@ -9,8 +9,7 @@ public class GrabObjects : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D c){
 		Rigidbody2D otherRigidbody = c.gameObject.GetComponent<Rigidbody2D> ();
 		if (c.gameObject.CompareTag ("Grabbable") && otherRigidbody != null) {
-			c.gameObject.GetComponent<Collider2D> ().isTrigger = true;
-			c.transform.SetParent (transform);	
+			c.transform.SetParent (transform);
 		}
 	}
 }

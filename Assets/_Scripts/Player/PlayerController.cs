@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	float jumpStrength = 6;
 
+	public GameObject abilityPrefab;
+	public GameObject projectilePrefab;
+	private bool isGrabbing = false;
 
 	bool isFacingRight = false;
 	bool isJump = true;
@@ -21,25 +24,29 @@ public class PlayerController : MonoBehaviour {
 	private Animator anim;
 	Transform wheel;
 	Transform body;
+	Transform hook;
+	PlayerInventory inv;
 
 
 	// Use this for initialization
 	void Awake () {
 		wheel = transform.Find("Wheel").GetChild(0);
 		body = transform.Find("Body");
+		hook = transform.Find("Chain").Find ("Hook");
 		rb2D = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		inv = GetComponent<PlayerInventory> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		horizontal = InputManager.GetAxis ("Horizontal");
 
-		if (isGrounded) {
+		//if (isGrounded) {
 
-			rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
+		rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
 
-		}
+		//}
 
 		wheel.Rotate (Vector3.forward * -horizontal * 50f);
 
@@ -55,7 +62,8 @@ public class PlayerController : MonoBehaviour {
 			rb2D.AddForce (Vector2.up * jumpStrength);
 		}
 
-		if (InputManager.GetButtonDown ("Grab")) {
+		if (InputManager.GetButtonDown ("Grab") && !isGrabbing) {
+			isGrabbing = true;
 			anim.Play ("StartGrab");
 		} else if (InputManager.GetButtonUp ("Grab")) {
 			anim.Play ("EndGrab");
@@ -67,15 +75,44 @@ public class PlayerController : MonoBehaviour {
 			anim.Play ("EndAbsorb");
 		}
 
+		//Useless shit
 		if (InputManager.GetButton ("Lean")) {
 			if (InputManager.GetAxis ("Lean") > 0) {
 				body.transform.eulerAngles = new Vector3 (body.transform.eulerAngles.x, body.transform.eulerAngles.y, 15);
 			} else {
 				body.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, body.transform.eulerAngles.y, -15);
 			}
-		} //else {
-			//body.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, transform.eulerAngles.y, 0);
-		//}
+		}
+
+		if(InputManager.GetButton("Shoot")){
+			Shoot();
+		}
+
+	}
+
+	void Shoot(){
+		if (inv) {
+			GameObject item = inv.pop ();
+			if (item != null) {
+				anim.Play ("Shoot");
+				GameObject obj = Instantiate (projectilePrefab, body.transform.Find("Barrel").position, body.transform.Find("Barrel").rotation);
+				item.SetActive (true);
+				item.transform.SetParent (obj.transform);
+				item.transform.localPosition = Vector3.zero;
+			}
+		}
+
+	}
+
+	public void CollectGrabbed(){
+		foreach(Transform c in hook.GetComponentsInChildren<Transform>()){
+			if (c.gameObject.CompareTag ("Grabbable")) {
+				inv.add (c.gameObject);
+				c.gameObject.SetActive (false);
+			}
+		}
+
+		isGrabbing = false;
 	}
 
 	void flipX(float flipTime){

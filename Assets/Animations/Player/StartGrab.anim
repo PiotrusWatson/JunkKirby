@@ -54,8 +54,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Chain/hook
-    classID: 58
+    path: Chain/Hook
+    classID: 61
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
@@ -82,10 +82,10 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2275415244
+      path: 663927794
       attribute: 3305885265
       script: {fileID: 0}
-      typeID: 58
+      typeID: 61
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
@@ -204,8 +204,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Chain/hook
-    classID: 58
+    path: Chain/Hook
+    classID: 61
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
