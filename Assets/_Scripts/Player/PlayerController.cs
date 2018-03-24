@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	float leanSpeed = 5f;
 
+	[SerializeField]
+	PlayerID id;
+
 	public GameObject abilityPrefab;
 	public GameObject projectilePrefab, junkBlockPrefab;
 	private bool isGrabbing = false;
