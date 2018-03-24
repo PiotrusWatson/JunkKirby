@@ -15,44 +15,59 @@ public class PlayerController : MonoBehaviour {
 	bool isJump = true;
 	float horizontal;
 	[HideInInspector]
-	public bool isGrounded = true;
+	public bool isGrounded = false;
 
 	private Rigidbody2D rb2D;
+	private Animator anim;
 	Transform wheel;
+	Transform body;
 
 
 	// Use this for initialization
 	void Awake () {
 		wheel = transform.GetChild (1);
+		body = transform.GetChild (0);
 		rb2D = wheel.GetComponent<Rigidbody2D> ();
+		anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		horizontal = InputManager.GetAxis ("Horizontal");
 
-		rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
+		if (isGrounded) {
 
-		if (InputManager.GetButton ("Jump")) {
-			rb2D.AddForce (Vector2.up * jumpStrength);
-			Debug.Log ("hi im jump");
+			rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
 		}
 
+
+
 		if (horizontal < 0 && !isFacingRight) {
-			flipX (5);
+			flipX (0.05f);
 		} else if (horizontal > 0 && isFacingRight) {
-			flipX (5);
+			flipX (0.05f);
 		}
 	}
 
+	void Update(){
+		if (InputManager.GetButton ("Jump") && isGrounded) {
+			rb2D.AddForce (Vector2.up * jumpStrength);
+		}
+
+		if (InputManager.GetButtonDown ("Grab")) {
+			anim.Play ("StartGrab");
+		} else if (InputManager.GetButtonUp ("Grab")) {
+			anim.Play ("EndGrab");
+		}
+	}
 
 	void flipX(float flipTime){
 		//flips player :)
 		isFacingRight = !isFacingRight;
 
-		Vector3 theScale = wheel.localScale;
+		Vector3 theScale = transform.localScale;
 		Mathf.Lerp(theScale.x, theScale.x *= -1, flipTime * Time.fixedDeltaTime);
-		wheel.localScale = theScale;
+		transform.localScale = theScale;
 	}
 }
 	
