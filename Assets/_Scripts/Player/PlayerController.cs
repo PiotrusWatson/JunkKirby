@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	bool isJump = true;
 	float horizontal;
 	[HideInInspector]
-	public bool isGrounded = true;
+	public bool isGrounded = false;
 
 	private Rigidbody2D rb2D;
 	Transform wheel;

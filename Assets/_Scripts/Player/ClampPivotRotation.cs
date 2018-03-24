@@ -15,8 +15,6 @@ public class ClampPivotRotation : MonoBehaviour {
 	void FixedUpdate () {
 		float rotz = rb2D.rotation;
 		float rotz2 = Mathf.Clamp (rotz, minrot, maxrot);
-
-		Debug.Log ("Initial Rotation: " + rotz + " New Rotation: " + rotz2);
 		rb2D.rotation = rotz2;
 	}
 }
