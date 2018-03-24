@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 
 		rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
 
-		if (InputManager.GetButton ("Jump")) {
+		if (InputManager.GetButton ("Jump") && isGrounded) {
 			rb2D.AddForce (Vector2.up * jumpStrength);
 			Debug.Log ("hi im jump");
 		}
