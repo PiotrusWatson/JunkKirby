@@ -60,6 +60,22 @@ public class PlayerController : MonoBehaviour {
 		} else if (InputManager.GetButtonUp ("Grab")) {
 			anim.Play ("EndGrab");
 		}
+
+		if (InputManager.GetButtonDown ("Absorb") && isGrounded) {
+			anim.Play ("StartAbsorb");
+		} else if (InputManager.GetButtonUp ("Absorb")) {
+			anim.Play ("EndAbsorb");
+		}
+
+		if (InputManager.GetButton ("Lean")) {
+			if (InputManager.GetAxis ("Lean") > 0) {
+				body.transform.eulerAngles = new Vector3 (body.transform.eulerAngles.x, body.transform.eulerAngles.y, 15);
+			} else {
+				body.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, body.transform.eulerAngles.y, -15);
+			}
+		} //else {
+			//body.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, transform.eulerAngles.y, 0);
+		//}
 	}
 
 	void flipX(float flipTime){

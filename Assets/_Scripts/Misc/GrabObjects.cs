@@ -11,8 +11,6 @@ public class GrabObjects : MonoBehaviour {
 		if (c.gameObject.CompareTag ("Grabbable") && otherRigidbody != null) {
 			c.gameObject.GetComponent<Collider2D> ().isTrigger = true;
 			c.transform.SetParent (transform);	
-
-
 		}
 	}
 }
