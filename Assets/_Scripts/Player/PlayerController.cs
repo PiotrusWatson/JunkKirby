@@ -18,21 +18,23 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = true;
 
 	private Rigidbody2D rb2D;
+	Transform wheel;
 
 
 	// Use this for initialization
 	void Awake () {
-		rb2D = GetComponent<Rigidbody2D> ();
+		wheel = transform.GetChild (1);
+		rb2D = wheel.GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		horizontal = InputManager.GetAxis ("Horizontal");
 
-		rb2D.velocity = new Vector2 (horizontal * speed, transform.localPosition.y);
+		rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
 
 		if (InputManager.GetButton ("Jump")) {
-			rb2D.AddForce (transform.up * jumpStrength);
+			rb2D.AddForce (Vector2.up * jumpStrength);
 			Debug.Log ("hi im jump");
 		}
 
@@ -48,9 +50,9 @@ public class PlayerController : MonoBehaviour {
 		//flips player :)
 		isFacingRight = !isFacingRight;
 
-		Vector3 theScale = transform.localScale;
+		Vector3 theScale = wheel.localScale;
 		Mathf.Lerp(theScale.x, theScale.x *= -1, flipTime * Time.fixedDeltaTime);
-		transform.localScale = theScale;
+		wheel.localScale = theScale;
 	}
 }
 	
