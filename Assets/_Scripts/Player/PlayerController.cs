@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		wheel = transform.Find("Wheel");
+		wheel = transform.Find("Wheel").GetChild(0);
 		body = transform.Find("Body");
 		rb2D = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
@@ -38,9 +38,10 @@ public class PlayerController : MonoBehaviour {
 		if (isGrounded) {
 
 			rb2D.velocity = new Vector2 (horizontal * speed, rb2D.velocity.y);
+
 		}
 
-
+		wheel.Rotate (Vector3.forward * -horizontal * 50f);
 
 		if (horizontal < 0 && !isFacingRight) {
 			flipX (0.05f);
