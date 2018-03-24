@@ -25,9 +25,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		wheel = transform.GetChild (1);
-		body = transform.GetChild (0);
-		rb2D = wheel.GetComponent<Rigidbody2D> ();
+		wheel = transform.Find("Wheel");
+		body = transform.Find("Body");
+		rb2D = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
 	
@@ -65,9 +65,11 @@ public class PlayerController : MonoBehaviour {
 		//flips player :)
 		isFacingRight = !isFacingRight;
 
-		Vector3 theScale = transform.localScale;
-		Mathf.Lerp(theScale.x, theScale.x *= -1, flipTime * Time.fixedDeltaTime);
-		transform.localScale = theScale;
+		Vector3 theRot = transform.eulerAngles;
+		theRot.y += 180;
+		theRot.y = theRot.y % 360;
+		//Mathf.Lerp(theRot.y, 180, flipTime * Time.fixedDeltaTime);
+		transform.eulerAngles = theRot;
 	}
 }
 	
