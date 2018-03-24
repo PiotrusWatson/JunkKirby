@@ -8,12 +8,16 @@ public class PlayerInventory : MonoBehaviour {
 	List<GameObject> inventory;
 	// Use this for initialization
 	void Awake () {
-		inventory = new List<GameObject> ();
+		reset ();
 	}
 	
 	// Update is called once per frame
 	public void add(GameObject item){
 		inventory.Add (item);
+	}
+
+	public void reset(){
+		inventory = new List<GameObject> ();
 	}
 		
 }
