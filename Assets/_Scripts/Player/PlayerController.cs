@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour {
 	float speed = 5;
 	[SerializeField]
 	float jumpStrength = 6;
+	[SerializeField]
+	float leanSpeed = 5f;
 
 	public GameObject abilityPrefab;
-	public GameObject projectilePrefab;
+	public GameObject projectilePrefab, junkBlockPrefab;
 	private bool isGrabbing = false;
 
 	bool isFacingRight = false;
@@ -76,13 +78,9 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Useless shit
-		if (InputManager.GetButton ("Lean")) {
-			if (InputManager.GetAxis ("Lean") > 0) {
-				body.transform.eulerAngles = new Vector3 (body.transform.eulerAngles.x, body.transform.eulerAngles.y, 15);
-			} else {
-				body.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, body.transform.eulerAngles.y, -15);
-			}
-		}
+		float lean = InputManager.GetAxisRaw("Lean");
+		rb2D.MoveRotation (Mathf.Lerp(0f, 240f * lean, Time.deltaTime * leanSpeed));
+
 
 		if(InputManager.GetButton("Shoot")){
 			Shoot();
@@ -102,6 +100,13 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
+	}
+
+	public void Compact(){
+		int counter = inv.inventory.Count;
+		inv.reset();
+		GameObject block = Instantiate(junkBlockPrefab, body.Find("Compactor").position, Quaternion.identity,null);
+		block.transform.localScale *= (Mathf.Log (counter) + 1);
 	}
 
 	public void CollectGrabbed(){

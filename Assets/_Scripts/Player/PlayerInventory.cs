@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour {
 
 	[SerializeField]
-	List<GameObject> inventory;
+	public List<GameObject> inventory;
 	// Use this for initialization
 
 	void Awake () {
