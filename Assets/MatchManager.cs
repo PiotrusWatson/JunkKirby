@@ -17,12 +17,19 @@ public class MatchManager : MonoBehaviour {
 	void Awake () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		playerRespawners = GameObject.FindGameObjectsWithTag ("PlayerRespawner");
-		respawnTimers = new float[players.Length];
-		//spawn
 
-		
+		respawnTimers = new float[players.Length];
 
 	}
+
+	void Start(){
+		//spawn
+		foreach (GameObject player in players) {
+			spawnPlayer (player);
+		}
+
+	}
+		
 	
 	// Update is called once per frame
 	void Update () {

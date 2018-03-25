@@ -13,12 +13,13 @@ public class PlayerHealth : MonoBehaviour {
 	public bool isDead;
 
 	PlayerController pc;
-
+	Animator anim;
 
 	// Use this for initialization
 	void Awake () {
 		pc = GetComponent<PlayerController> ();
-		refresh ();
+		anim = GetComponent<Animator> ();
+		health = maxHealth;
 
 	}
 	
@@ -29,12 +30,15 @@ public class PlayerHealth : MonoBehaviour {
 			pc.enabled = false;
 			health = maxHealth;
 			lives -= 1;
+			anim.Play ("Dying");
+
 			//TODO: Death anim stuff
 		}
 	}
 
 	public void refresh(){
 		isDead = false;
+		anim.Play ("Idle");
 		if (!pc.enabled) {
 			pc.enabled = true;
 		}

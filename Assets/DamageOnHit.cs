@@ -14,7 +14,6 @@ public class DamageOnHit : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D c) {
 		
 		if (c.gameObject.CompareTag ("PlayerBody")) {
-			Debug.Log ("YOU'RE KILLING ME HERE");
 			c.GetComponentInParent<PlayerHealth> ().hurtMe (damage);
 
 		}
