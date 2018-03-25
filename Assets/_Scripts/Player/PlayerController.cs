@@ -82,7 +82,12 @@ public class PlayerController : MonoBehaviour {
 
 		//Useless shit
 		float lean = InputManager.GetAxisRaw("Lean", id);
-		rb2D.MoveRotation (Mathf.Lerp(0f, 360f * -lean, Time.deltaTime * leanSpeed));
+		Debug.Log (InputManager.GetInputConfiguration (id).name);
+		if (InputManager.GetInputConfiguration (id).name.Contains ("Controller")) {
+			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * -lean, Time.deltaTime * leanSpeed));
+		} else {
+			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * lean, Time.deltaTime * leanSpeed));
+		}
 
 
 		if(InputManager.GetButton("Shoot", id)){
