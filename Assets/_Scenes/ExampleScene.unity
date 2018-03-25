@@ -17603,6 +17603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 985324562}
   - component: {fileID: 985324561}
+  - component: {fileID: 985324563}
   m_Layer: 0
   m_Name: JunkSpawner
   m_TagString: ItemRespawner
@@ -17644,7 +17645,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e013c4070b242074aac2dc8240f50404, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17652,7 +17653,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &985324562
 Transform:
@@ -17667,6 +17668,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985324563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 985324560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37588a1713d563b49b0e1ac23ae543cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 3
+  junkList:
+  - {fileID: 1063400798595818, guid: 60541d12d0e1d6440b4c2ff0c595819f, type: 2}
+  - {fileID: 1777562810374280, guid: a2ecb7be1f9513845aaedd3ab38d468d, type: 2}
+  - {fileID: 1677805792999662, guid: d4e764cae906a3b4aa72fc3379e83b81, type: 2}
+  - {fileID: 1643923827430922, guid: a528570080f5299488a0ac97e177bfae, type: 2}
 --- !u!1 &1142106052 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1475568137101954, guid: fcd9a5b697a5b924ab32212b78ed3a5c,
