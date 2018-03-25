@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
-		if ((InputManager.GetButtonDown ("Jump", id) || InputManager.GetAxisRaw("BonusJump", id) < 0) && isGrounded) {
+		if ((InputManager.GetButtonDown ("Jump", id) || InputManager.GetAxis("BonusJump", id) < 0) && isGrounded) {
 			rb2D.AddForce (Vector2.up * jumpStrength);
 		}
 
