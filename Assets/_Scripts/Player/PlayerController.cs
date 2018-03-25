@@ -114,7 +114,6 @@ public class PlayerController : MonoBehaviour {
 		int counter = inv.inventory.Count;
 		inv.reset();
 		GameObject block = Instantiate(junkBlockPrefab, body.Find("Compactor").position, Quaternion.identity,null);
-		Debug.Log (block.transform.localScale);
 		block.transform.localScale *= (Mathf.Log (counter) + 1);
 	}
 

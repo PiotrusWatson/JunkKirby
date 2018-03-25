@@ -27,7 +27,6 @@ public class AttackingState : AiState {
 	// Update is called once per frame
 	public override void Tick () {
 		eva.chasePlayer ();
-		Debug.Log ("im angry");
 		timer += Time.fixedDeltaTime;
 		if (timer >= eva.angryThreshold) {
 			eva.SetState (new PatrollingState (eva.gameObject));

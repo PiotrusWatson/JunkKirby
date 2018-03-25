@@ -17169,6 +17169,26 @@ Prefab:
       propertyPath: m_BackGroundColor.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
+        type: 2}
+      propertyPath: sizeStuff
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
+        type: 2}
+      propertyPath: cameraSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
+        type: 2}
+      propertyPath: cameraBuffer.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
+        type: 2}
+      propertyPath: cameraBuffer.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 787151d7ed81eda4c8e2acfd4c676cb9, type: 2}
   m_IsPrefabParent: 0
