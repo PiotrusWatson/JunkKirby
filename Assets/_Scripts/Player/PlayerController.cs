@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 	float leanSpeed = 5f;
 
 	[SerializeField]
-	PlayerID id;
+	PlayerID id = PlayerID.One;
 
 	public GameObject abilityPrefab;
 	public GameObject projectilePrefab, junkBlockPrefab;
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		horizontal = InputManager.GetAxis ("Horizontal");
+		horizontal = InputManager.GetAxis ("Horizontal", id);
 
 		//if (isGrounded) {
 
@@ -63,29 +63,29 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
-		if (InputManager.GetButton ("Jump") && isGrounded) {
+		if ((InputManager.GetButton ("Jump", id) || InputManager.GetAxis("BonusJump", id) < 0) && isGrounded) {
 			rb2D.AddForce (Vector2.up * jumpStrength);
 		}
 
-		if (InputManager.GetButtonDown ("Grab") && !isGrabbing) {
+		if (InputManager.GetButtonDown ("Grab", id) && !isGrabbing) {
 			isGrabbing = true;
 			anim.Play ("StartGrab");
-		} else if (InputManager.GetButtonUp ("Grab")) {
+		} else if (InputManager.GetButtonUp ("Grab", id)) {
 			anim.Play ("EndGrab");
 		}
 
-		if (InputManager.GetButtonDown ("Absorb") && isGrounded) {
+		if (InputManager.GetButtonDown ("Absorb", id) && isGrounded) {
 			anim.Play ("StartAbsorb");
-		} else if (InputManager.GetButtonUp ("Absorb")) {
+		} else if (InputManager.GetButtonUp ("Absorb", id)) {
 			anim.Play ("EndAbsorb");
 		}
 
 		//Useless shit
-		float lean = InputManager.GetAxisRaw("Lean");
-		rb2D.MoveRotation (Mathf.Lerp(0f, 240f * lean, Time.deltaTime * leanSpeed));
+		float lean = InputManager.GetAxisRaw("Lean", id);
+		rb2D.MoveRotation (Mathf.Lerp(0f, 360f * -lean, Time.deltaTime * leanSpeed));
 
 
-		if(InputManager.GetButton("Shoot")){
+		if(InputManager.GetButton("Shoot", id)){
 			Shoot();
 		}
 
