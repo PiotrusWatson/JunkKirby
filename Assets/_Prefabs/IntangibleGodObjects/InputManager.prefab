@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072724475112790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputConfigurations:
-  - name: Player_One
+  - name: Player_One-Keyboard
     axes:
     - name: Horizontal
       description: 
@@ -71,6 +71,20 @@ MonoBehaviour:
     - name: Jump
       description: 
       positive: 119
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: BonusJump
+      description: 
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -126,7 +140,7 @@ MonoBehaviour:
       joystick: 0
     - name: Shoot
       description: 
-      positive: 0
+      positive: 304
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -139,9 +153,500 @@ MonoBehaviour:
       axis: 0
       joystick: 0
     isExpanded: 1
-  _playerOneDefault: Player_One
-  _playerTwoDefault: 
-  _playerThreeDefault: 
-  _playerFourDefault: 
-  _dontDestroyOnLoad: 0
+  - name: Player_One-Controller
+    axes:
+    - name: Horizontal
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.1
+      gravity: 0.5
+      sensitivity: 0.5
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 0
+      joystick: 0
+    - name: Jump
+      description: 
+      positive: 350
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 0.5
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 1
+      joystick: 0
+    - name: BonusJump
+      description: 
+      positive: 350
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.999
+      gravity: 1
+      sensitivity: 0.3
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 1
+      joystick: 0
+    - name: Lean
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 3
+      joystick: 0
+    - name: Grab
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 8
+      joystick: 0
+    - name: Absorb
+      description: 
+      positive: 354
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Shoot
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 9
+      joystick: 0
+    isExpanded: 1
+  - name: Player_Two-Controller
+    axes:
+    - name: Horizontal
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.1
+      gravity: 0.5
+      sensitivity: 0.5
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 0
+      joystick: 1
+    - name: Jump
+      description: 
+      positive: 370
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 0.5
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 1
+      joystick: 1
+    - name: BonusJump
+      description: 
+      positive: 370
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.999
+      gravity: 1
+      sensitivity: 0.3
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 1
+      joystick: 1
+    - name: Lean
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 3
+      joystick: 1
+    - name: Grab
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 8
+      joystick: 1
+    - name: Absorb
+      description: 
+      positive: 374
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 1
+    - name: Shoot
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 9
+      joystick: 1
+    isExpanded: 1
+  - name: Player_Three-Controller
+    axes:
+    - name: Horizontal
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.1
+      gravity: 0.5
+      sensitivity: 0.5
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 0
+      joystick: 2
+    - name: Jump
+      description: 
+      positive: 390
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 0.5
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 1
+      joystick: 2
+    - name: BonusJump
+      description: 
+      positive: 390
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.999
+      gravity: 1
+      sensitivity: 0.3
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 1
+      joystick: 2
+    - name: Lean
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 3
+      joystick: 2
+    - name: Grab
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 8
+      joystick: 2
+    - name: Absorb
+      description: 
+      positive: 394
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 2
+    - name: Shoot
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 9
+      joystick: 2
+    isExpanded: 1
+  - name: Player_Four-Controller
+    axes:
+    - name: Horizontal
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.1
+      gravity: 0.5
+      sensitivity: 0.5
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 0
+      joystick: 3
+    - name: Jump
+      description: 
+      positive: 410
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 0.5
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 1
+      joystick: 3
+    - name: BonusJump
+      description: 
+      positive: 410
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.999
+      gravity: 1
+      sensitivity: 0.3
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 1
+      joystick: 3
+    - name: Lean
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 3
+      axis: 3
+      joystick: 3
+    - name: Grab
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 8
+      joystick: 3
+    - name: Absorb
+      description: 
+      positive: 414
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 3
+    - name: Shoot
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 6
+      axis: 9
+      joystick: 3
+    isExpanded: 1
+  - name: Player_Two-Keyboard
+    axes:
+    - name: Horizontal
+      description: 
+      positive: 275
+      negative: 276
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.1
+      gravity: 1
+      sensitivity: 1
+      snap: 1
+      invert: 0
+      type: 2
+      axis: 0
+      joystick: 0
+    - name: Jump
+      description: 
+      positive: 273
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Lean
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0.01
+      gravity: 0.5
+      sensitivity: 0.5
+      snap: 0
+      invert: 0
+      type: 2
+      axis: 0
+      joystick: 0
+    - name: Grab
+      description: 
+      positive: 32
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Absorb
+      description: 
+      positive: 115
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Shoot
+      description: 
+      positive: 304
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 1
+      sensitivity: 1
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    isExpanded: 0
+  _playerOneDefault: Player_One-Controller
+  _playerTwoDefault: Player_Two-Controller
+  _playerThreeDefault: Player_Three-Controller
+  _playerFourDefault: Player_Four-Controller
+  _dontDestroyOnLoad: 1
   _ignoreTimescale: 0
