@@ -285,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940676951725800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.115, y: 0.022, z: 0}
+  m_LocalPosition: {x: 0.83, y: 0.022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828886808141352}
@@ -399,7 +399,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1129283951069974}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4670292dfe1e8b48b0bf86cf7600c3f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -454,7 +454,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1398540181520008}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4670292dfe1e8b48b0bf86cf7600c3f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpStrength: 128
+  jumpStrength: 512
   leanSpeed: 5
   id: 1
   abilityPrefab: {fileID: 0}
