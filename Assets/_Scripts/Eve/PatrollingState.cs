@@ -21,7 +21,7 @@ public class PatrollingState : AiState {
 		anim = AI.GetComponent<Animator> ();
 		targetDirection = Vector2.left;
 		eva = AI.GetComponent<EvaController> ();
-
+		scanningZone.GetComponent<SpriteRenderer> ().color = eva.oldColour;
 		scanningZone.GetComponent<PolygonCollider2D> ().enabled = true;
 	}
 

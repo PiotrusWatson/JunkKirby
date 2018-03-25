@@ -21,16 +21,18 @@ public class EvaController : MonoBehaviour {
 	private Rigidbody2D rb2D;
 	private Animator anim;
 	Vector2 targetDirection;
-	Color oldColor;
+	public Color oldColor;
 
 	// Use this for initialization
 	void Awake() {
 		body = transform.Find("Body");
 		rb2D = body.GetComponent<Rigidbody2D> ();
-		oldColour = body.GetComponent<Renderer>().material.GetColor ("_Color");
+		oldColour = body.transform.Find ("ScanningZone").GetComponent<SpriteRenderer> ().color;
 		SetState (new PatrollingState (gameObject));
 	}
-	
+	void Start(){
+		
+	}
 	// Update is called once per frame
 	void FixedUpdate () {
 		currentState.Tick ();

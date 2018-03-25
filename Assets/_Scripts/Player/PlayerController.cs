@@ -110,12 +110,22 @@ public class PlayerController : MonoBehaviour {
 
 	public void Compact(){
 		int counter = inv.inventory.Count;
-		foreach (GameObject obj in inv.inventory){
 
+		foreach (GameObject obj in inv.inventory){
+			BlockProperties blockFacts = obj.GetComponent<BlockProperties> ();
+			if (blockFacts != null) {
+				counter += blockFacts.size;
+			}
 		}
+
+		if (counter == 0)
+			return;
 		inv.reset();
+
 		GameObject block = Instantiate(junkBlockPrefab, body.Find("Compactor").position, Quaternion.identity,null);
 		block.transform.localScale *= (Mathf.Log (counter) + 1);
+		block.GetComponent<BlockProperties> ().size = counter;
+		block.GetComponent<Rigidbody2D> ().mass = counter;
 	}
 
 	public void CollectGrabbed(){
