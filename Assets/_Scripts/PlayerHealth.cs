@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour {
 
 
 	float health;
-	bool isDead;
+	public bool isDead;
 
 	PlayerController pc;
 
@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour {
 		if (health <= 0f) {
 			isDead = true;
 			pc.enabled = false;
+			health = maxHealth;
 			lives -= 1;
 			//TODO: Death anim stuff
 		}
@@ -34,13 +35,14 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void refresh(){
 		isDead = false;
-		health = maxHealth;
 		if (!pc.enabled) {
 			pc.enabled = true;
 		}
 	}
 		
 	public void hurtMe(float damage){
+		if (isDead)
+			return;
 		health -= damage;
 	}
 }
