@@ -16,7 +16,7 @@ public class EndGrabEnd : StateMachineBehaviour {
 
 	//OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>().CollectGrabbed();
+		animator.GetComponent<PlayerController>().CollectGrabbed();
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
