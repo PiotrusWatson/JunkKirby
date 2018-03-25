@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212936234712459090}
   - component: {fileID: 50073196127689824}
   - component: {fileID: 61895619812982652}
+  - component: {fileID: 114795306345854118}
   m_Layer: 0
   m_Name: JunkBox
   m_TagString: Grabbable
@@ -142,6 +143,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24786043, y: 0.24414337}
   m_EdgeRadius: 0
+--- !u!114 &114795306345854118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620739455270808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488a3207bb1536549846248304520650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 0
 --- !u!212 &212936234712459090
 SpriteRenderer:
   m_ObjectHideFlags: 1

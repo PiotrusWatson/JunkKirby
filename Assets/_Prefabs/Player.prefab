@@ -285,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940676951725800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.115, y: 0.022, z: 0}
+  m_LocalPosition: {x: 0.83, y: 0.022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828886808141352}
@@ -382,15 +382,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4670292dfe1e8b48b0bf86cf7600c3f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &58884841005895364
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -433,7 +433,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.37840632, y: 0}
+  m_Offset: {x: 0.030112058, y: -0.043959737}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -444,7 +444,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1068127, y: 0.25}
+  m_Size: {x: 0.2897759, y: 0.33791947}
   m_EdgeRadius: 0
 --- !u!70 &70236222121451870
 CapsuleCollider2D:
@@ -508,6 +508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpStrength: 128
+  leanSpeed: 5
+  id: 0
   abilityPrefab: {fileID: 0}
   projectilePrefab: {fileID: 1773051655009228, guid: deab1e880a963b546af7907a27ac9f25,
     type: 2}
@@ -547,7 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc8e90d2a7e01145af7d436b987e88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 3
   maxHealth: 100
+  isDead: 0
 --- !u!114 &114777508073564272
 MonoBehaviour:
   m_ObjectHideFlags: 1
