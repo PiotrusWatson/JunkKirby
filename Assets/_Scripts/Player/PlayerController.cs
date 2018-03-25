@@ -110,6 +110,9 @@ public class PlayerController : MonoBehaviour {
 
 	public void Compact(){
 		int counter = inv.inventory.Count;
+		foreach (GameObject obj in inv.inventory){
+
+		}
 		inv.reset();
 		GameObject block = Instantiate(junkBlockPrefab, body.Find("Compactor").position, Quaternion.identity,null);
 		block.transform.localScale *= (Mathf.Log (counter) + 1);
