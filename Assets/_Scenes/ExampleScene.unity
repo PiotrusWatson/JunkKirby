@@ -17172,12 +17172,12 @@ Prefab:
     - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
         type: 2}
       propertyPath: sizeStuff
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
         type: 2}
       propertyPath: cameraSpeed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114083835322045090, guid: 787151d7ed81eda4c8e2acfd4c676cb9,
         type: 2}
