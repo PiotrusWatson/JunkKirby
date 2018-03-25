@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour {
 
 
 
-		//Useless shit
+		/*//Useless shit
 		float lean = InputManager.GetAxisRaw("Lean", id);
 		if (InputManager.GetInputConfiguration (id).name.Contains ("Controller")) {
 			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * -lean, Time.deltaTime * leanSpeed));
 		} else {
 			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * lean, Time.deltaTime * leanSpeed));
-		}
+		}*/
 	}
 
 	void Update(){
@@ -102,9 +102,11 @@ public class PlayerController : MonoBehaviour {
 			if (item != null) {
 				anim.Play ("Shoot");
 				GameObject obj = Instantiate (projectilePrefab, body.transform.Find("Barrel").position, body.transform.Find("Barrel").rotation);
+
 				item.SetActive (true);
 				item.transform.SetParent (obj.transform);
 				item.transform.localPosition = Vector3.zero;
+				item.GetComponentInChildren<Rigidbody2D> ().isKinematic = false;
 			}
 		}
 

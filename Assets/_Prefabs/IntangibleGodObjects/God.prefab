@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4123188277961472}
   - component: {fileID: 114902174751734152}
+  - component: {fileID: 114794279527326192}
   m_Layer: 0
   m_Name: God
   m_TagString: Untagged
@@ -179,6 +180,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114794279527326192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209658215423656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe94700307bb1bc4e8802bb008e713e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 3
+  isOver: 0
 --- !u!114 &114902174751734152
 MonoBehaviour:
   m_ObjectHideFlags: 1
