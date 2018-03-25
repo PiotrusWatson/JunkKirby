@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	float leanSpeed = 5f;
 
-	[SerializeField]
-	PlayerID id = PlayerID.One;
+	public PlayerID id = PlayerID.One;
 
 	public GameObject abilityPrefab;
 	public GameObject projectilePrefab, junkBlockPrefab;

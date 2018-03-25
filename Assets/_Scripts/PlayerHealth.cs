@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
+
+	public int lives = 3;
 	[SerializeField]
 	float maxHealth = 100;
+
+
 	float health;
 	bool isDead;
 
@@ -23,6 +27,7 @@ public class PlayerHealth : MonoBehaviour {
 		if (health <= 0f) {
 			isDead = true;
 			pc.enabled = false;
+			lives -= 1;
 			//TODO: Death anim stuff
 		}
 	}

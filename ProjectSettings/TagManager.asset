@@ -8,6 +8,8 @@ TagManager:
   - Grabbable
   - PlayerBody
   - God
+  - ItemRespawner
+  - PlayerRespawner
   layers:
   - Default
   - TransparentFX

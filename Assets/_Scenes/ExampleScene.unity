@@ -1521,6 +1521,11 @@ Prefab:
       propertyPath: _inputConfigurations.Array.data[4].axes.Array.data[6].joystick
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114414803428406054, guid: 3e07ff73a503e2a42aa9f8998f803c60,
+        type: 2}
+      propertyPath: _dontDestroyOnLoad
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e07ff73a503e2a42aa9f8998f803c60, type: 2}
   m_IsPrefabParent: 0
@@ -17843,6 +17848,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1209658215423656, guid: 54f9d8d8fbef3764d9889291d9444504, type: 2}
+      propertyPath: m_TagString
+      value: God
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54f9d8d8fbef3764d9889291d9444504, type: 2}
   m_IsPrefabParent: 0
@@ -17990,6 +17999,22 @@ Transform:
   m_Father: {fileID: 1255135518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1941000474 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1209658215423656, guid: 54f9d8d8fbef3764d9889291d9444504,
+    type: 2}
+  m_PrefabInternal: {fileID: 1750380824}
+--- !u!114 &1941000475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1941000474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe94700307bb1bc4e8802bb008e713e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2144247631
 GameObject:
   m_ObjectHideFlags: 0
