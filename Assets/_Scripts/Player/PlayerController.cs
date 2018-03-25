@@ -54,10 +54,14 @@ public class PlayerController : MonoBehaviour {
 
 		wheel.Rotate (Vector3.forward * -horizontal * 50f);
 
-		if (horizontal < 0 && !isFacingRight) {
-			flipX (0.05f);
-		} else if (horizontal > 0 && isFacingRight) {
-			flipX (0.05f);
+
+
+		//Useless shit
+		float lean = InputManager.GetAxisRaw("Lean", id);
+		if (InputManager.GetInputConfiguration (id).name.Contains ("Controller")) {
+			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * -lean, Time.deltaTime * leanSpeed));
+		} else {
+			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * lean, Time.deltaTime * leanSpeed));
 		}
 	}
 
@@ -79,12 +83,10 @@ public class PlayerController : MonoBehaviour {
 			anim.Play ("EndAbsorb");
 		}
 
-		//Useless shit
-		float lean = InputManager.GetAxisRaw("Lean", id);
-		if (InputManager.GetInputConfiguration (id).name.Contains ("Controller")) {
-			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * -lean, Time.deltaTime * leanSpeed));
-		} else {
-			rb2D.MoveRotation (Mathf.Lerp (0f, 360f * lean, Time.deltaTime * leanSpeed));
+		if (horizontal < 0 && !isFacingRight) {
+			flipX (0.05f);
+		} else if (horizontal > 0 && isFacingRight) {
+			flipX (0.05f);
 		}
 
 

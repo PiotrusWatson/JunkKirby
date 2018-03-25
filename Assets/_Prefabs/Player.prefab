@@ -285,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940676951725800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: 0.022, z: 0}
+  m_LocalPosition: {x: -0.115, y: 0.022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828886808141352}
@@ -382,7 +382,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.5
+  m_Mass: 1.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -509,7 +509,7 @@ MonoBehaviour:
   speed: 5
   jumpStrength: 128
   leanSpeed: 5
-  id: 0
+  id: 1
   abilityPrefab: {fileID: 0}
   projectilePrefab: {fileID: 1773051655009228, guid: deab1e880a963b546af7907a27ac9f25,
     type: 2}
