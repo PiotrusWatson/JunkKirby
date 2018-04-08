@@ -8,6 +8,11 @@ public class PlayerHealth : MonoBehaviour {
 	[SerializeField]
 	float maxHealth = 100;
 
+	AudioSource aud;
+	[SerializeField]
+	AudioClip itHurts;
+	[SerializeField]
+	AudioClip Kill;
 
 	float health;
 	public bool isDead;
@@ -20,6 +25,7 @@ public class PlayerHealth : MonoBehaviour {
 		pc = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
 		health = maxHealth;
+		aud = GetComponent<AudioSource> ();
 
 	}
 	
@@ -31,6 +37,8 @@ public class PlayerHealth : MonoBehaviour {
 			health = maxHealth;
 			lives -= 1;
 			anim.Play ("Dying");
+			aud.clip = Kill;
+			aud.Play ();
 
 			//TODO: Death anim stuff
 		}
@@ -47,6 +55,8 @@ public class PlayerHealth : MonoBehaviour {
 	public void hurtMe(float damage){
 		if (isDead)
 			return;
+		aud.clip = itHurts;
+		aud.Play ();
 		health -= damage;
 	}
 }

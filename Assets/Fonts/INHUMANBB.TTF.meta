@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 31aa14f329e2f1c49996c588e43f6b6c
+timeCreated: 1521991119
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Inhuman BB
+  fontNames:
+  - Inhuman BB
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

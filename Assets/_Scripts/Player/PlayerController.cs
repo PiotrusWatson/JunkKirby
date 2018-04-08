@@ -11,6 +11,16 @@ public class PlayerController : MonoBehaviour {
 	float jumpStrength = 6;
 	[SerializeField]
 	float leanSpeed = 5f;
+	[SerializeField]
+	AudioClip buildThing;
+	[SerializeField]
+	AudioClip grapple;
+	[SerializeField]
+	AudioClip junkGet;
+	[SerializeField]
+	AudioClip jumpSound;
+
+
 
 	public PlayerID id = PlayerID.One;
 
@@ -25,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = false;
 
 	private Rigidbody2D rb2D;
+	AudioSource aud;
 	private Animator anim;
 	Transform wheel;
 	Transform body;
@@ -40,6 +51,7 @@ public class PlayerController : MonoBehaviour {
 		rb2D = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		inv = GetComponent<PlayerInventory> ();
+		aud = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -67,17 +79,25 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
 		if ((InputManager.GetButtonDown ("Jump", id) && isGrounded)) {
+			aud.clip = jumpSound;
+			aud.Play ();
 			rb2D.AddForce (Vector2.up * jumpStrength);
 		}
 
 		if (InputManager.GetButtonDown ("Grab", id) && !isGrabbing) {
+			aud.clip = grapple;
+			aud.Play ();
 			isGrabbing = true;
 			anim.Play ("StartGrab");
 		} else if (InputManager.GetButtonUp ("Grab", id)) {
+			aud.clip = junkGet;
+			aud.Play ();
 			anim.Play ("EndGrab");
 		}
 
 		if (InputManager.GetButtonDown ("Absorb", id) && isGrounded) {
+			aud.clip = buildThing;
+			aud.Play ();
 			anim.Play ("StartAbsorb");
 		} else if (InputManager.GetButtonUp ("Absorb", id)) {
 			anim.Play ("EndAbsorb");
@@ -130,6 +150,7 @@ public class PlayerController : MonoBehaviour {
 		block.transform.localScale *= (Mathf.Log (counter) + 1);
 		block.GetComponent<BlockProperties> ().size = counter;
 		block.GetComponent<Rigidbody2D> ().mass = counter;
+		block.GetComponent<Rigidbody2D> ().AddForce (10*transform.up, ForceMode2D.Impulse);
 	}
 
 	public void CollectGrabbed(){
